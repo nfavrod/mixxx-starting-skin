@@ -1,0 +1,541 @@
+<!--
+Starting Skin, Clone and edit it to make your own Skin for Mixxx
+www.mixxx.org
+
+You can find a tutorial in this folder : tutorial.md
+
+See changelog.md for the list of changes.
+-->
+
+
+<!--
+
+Discovery of Skining Mixxx.
+Here you will find some Helpful information.
+
+Size : http://www.mixxx.org/wiki/doku.php/creating_skins#size
+-->
+	
+<!DOCTYPE skin>
+<!-- Skin opening tag -->
+<skin>
+	<!--- Manifest describing skin properties (author, title, version, etc.) -->
+	
+	<manifest>
+		<title>Starting Skin</title>
+		<author>nfavrod</author>
+		<version>0.1</version>
+		<description>A starting skin for Mixxx - Clone and edit it to make your own Skin for Mixxx</description>
+		<language>en</language>
+		<license>Creative Commons Attribution, Share-Alike 3.0 Unported</license>
+	</manifest>
+
+	<!-- End of manifest -->
+	
+	<ObjectName>Mixxx</ObjectName>
+	<Style src="skin:style.qss"/> <!-- Here we insert a link to the style of your objects -->
+
+
+	<MinimumSize>1024,700</MinimumSize>
+	<SizePolicy>me,me</SizePolicy>
+	<Layout>horizontal</Layout>
+
+
+	<Children>
+	
+	<!-- This is my first Widget group where I will place the objects -->
+	
+		<WidgetGroup>
+			<SizePolicy>me,me</SizePolicy>
+			<Layout>vertical</Layout>
+			<Children>
+			
+				<WidgetGroup>
+					<SizePolicy>me,me</SizePolicy>
+					<Layout>horizontal</Layout>
+					<Children>
+					
+						<!-- Channel 1 Waveforms-->
+						<WidgetGroup>
+							<SizePolicy>me,me</SizePolicy>
+							<Layout>vertical</Layout>					
+							<Children>					
+								<Visual>
+									<Channel>1</Channel>
+								</Visual>
+								<Overview>
+									<Channel>1</Channel>
+									<SizePolicy>me,me</SizePolicy>
+									<Connection>
+										<ConfigKey>[Channel1],playposition</ConfigKey>
+									</Connection>
+								</Overview>									
+
+								<TrackProperty>
+									<Property>artist</Property>
+									<Channel>1</Channel>
+								</TrackProperty>
+								<TrackProperty>
+									<Property>title</Property>
+									<Channel>1</Channel>
+								</TrackProperty>
+
+								<!-- Channel 1 Controls -->
+					
+								<WidgetGroup>
+									<SizePolicy>me,me</SizePolicy>
+									<Layout>horizontal</Layout>		
+									<Children>
+
+											<PushButton>
+												<MinimumSize>10</MinimumSize>
+												<MaximumSize>-1</MaximumSize>
+												<SizePolicy>me,me</SizePolicy>
+												<NumberStates>1</NumberStates>
+												<State>
+													<Number>0</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-backward.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-backward.svg</Unpressed>
+												</State>
+												<Connection>
+													<ConfigKey>[Channel1],back</ConfigKey>
+													<ButtonState>LeftButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel1],start</ConfigKey>
+													<ButtonState>RightButton</ButtonState>
+												</Connection>
+											</PushButton>												
+											
+											<PushButton>
+												<MinimumSize>10</MinimumSize>
+												<MaximumSize>-1</MaximumSize>
+												<SizePolicy>me,me</SizePolicy>
+												<NumberStates>1</NumberStates>
+												<State>
+													<Number>0</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-forward.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-forward.svg</Unpressed>
+												</State>
+												<Connection>
+													<ConfigKey>[Channel1],fwd</ConfigKey>
+													<ButtonState>LeftButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel1],end</ConfigKey>
+													<ButtonState>RightButton</ButtonState>
+												</Connection>
+											</PushButton>
+											
+											<PushButton>
+												<MinimumSize>10</MinimumSize>
+												<MaximumSize>-1</MaximumSize>
+												<SizePolicy>me,me</SizePolicy>
+												<NumberStates>2</NumberStates>
+												<RightClickIsPushButton>true</RightClickIsPushButton>
+												<State>
+													<Number>0</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-start.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-start.svg</Unpressed>
+												</State>
+												<State>
+													<Number>1</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-pause.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-pause.svg</Unpressed>
+												</State>
+												<Connection>
+													<ConfigKey>[Channel1],play</ConfigKey>
+													<ButtonState>LeftButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel1],cue_set</ConfigKey>
+													<ButtonState>RightButton</ButtonState>
+													<ConnectValueToWidget>false</ConnectValueToWidget>
+												</Connection>
+											</PushButton>
+								
+											<PushButton>
+												<MinimumSize>10</MinimumSize>
+												<MaximumSize>-1</MaximumSize>
+												<SizePolicy>me,me</SizePolicy>
+												<NumberStates>2</NumberStates>
+												<State>
+													<Number>0</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-stop.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-stop.svg</Unpressed>
+												</State>
+												<State>
+													<Number>1</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-stop.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-stop.svg</Unpressed>
+												</State>
+												<Connection>
+													<ConfigKey>[Channel1],cue_default</ConfigKey>
+													<ButtonState>LeftButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel1],cue_gotoandstop</ConfigKey>
+													<ButtonState>RightButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel1],cue_indicator</ConfigKey>
+												</Connection>
+											</PushButton>								
+								
+										</Children>
+									</WidgetGroup>
+
+								<!-- END Channel 1 Controls -->								
+								
+								
+							</Children>
+						</WidgetGroup>	
+
+						<!-- END Channel 1 Waveforms-->
+						
+						
+						<!-- VU METERS -->
+
+						<WidgetGroup>
+							<SizePolicy>me,me</SizePolicy>
+							<Layout>horizontal</Layout>
+							<Children>
+	
+								<WidgetGroup>
+									<SizePolicy>me,me</SizePolicy>
+									<Layout>vertical</Layout>					
+									<Children>	
+										  <StatusLight>
+											<ObjectName>PeakIndicator</ObjectName>
+											<MinimumSize>-1</MinimumSize>
+											<MaximumSize>-1</MaximumSize>
+											<Size>me,me</Size>
+											<PathStatusLight scalemode="STRETCH">images/vumeter_clip.svg</PathStatusLight>
+											<Connection>
+												<ConfigKey>[Channel1],PeakIndicator</ConfigKey>
+											</Connection>
+										  </StatusLight>
+										  <VuMeter>
+											<MinimumSize>-1</MinimumSize>
+											<MaximumSize>-1</MaximumSize>
+											<Size>me,me</Size>
+											<PathVu scalemode="STRETCH">images/vumeter_v.svg</PathVu>
+											<Horizontal>false</Horizontal>							
+											<Connection>
+												<ConfigKey>[Channel1],VuMeter</ConfigKey>
+											</Connection>
+										</VuMeter>							
+									</Children>
+								</WidgetGroup>	
+								
+									<!-- Mixer -->
+								<WidgetGroup>
+									<SizePolicy>me,me</SizePolicy>
+									<Layout>vertical</Layout>		
+									<Children>
+										<WidgetGroup>
+											<SizePolicy>me,me</SizePolicy>
+											<Layout>horizontal</Layout>		
+											<Children>
+												<SliderComposed>
+													<SizePolicy>me,me</SizePolicy>
+													<MinimumSize>100</MinimumSize>
+													<MaximumSize>-1</MaximumSize>
+													<Handle scalemode="STRETCH_ASPECT">images/mixxx-starting-handle-v.svg</Handle>
+													<Slider scalemode="STRETCH">images/slider-vertical.svg</Slider>
+													<Horizontal>false</Horizontal>
+													<Connection>
+														<ConfigKey>[Channel1],volume</ConfigKey>
+													</Connection>
+												</SliderComposed>
+												<WidgetGroup>
+													<SizePolicy>me,me</SizePolicy>
+													<Layout>vertical</Layout>					
+													<Children>	
+														  <StatusLight>
+															<MinimumSize>30</MinimumSize>
+															<MaximumSize>50</MaximumSize>
+															<ObjectName>PeakIndicator</ObjectName>
+															<Size>me,me</Size>
+															<PathStatusLight scalemode="STRETCH">images/vumeter_clip.svg</PathStatusLight>
+															<Connection>
+																<ConfigKey>[Master],PeakIndicatorL</ConfigKey>
+															</Connection>
+														  </StatusLight>
+														  <VuMeter>
+															<Size>me,me</Size>
+															<PathVu scalemode="STRETCH">images/vumeter_v.svg</PathVu>
+															<Horizontal>false</Horizontal>							
+															<Connection>
+																<ConfigKey>[Master],VuMeterL</ConfigKey>
+															</Connection>
+														</VuMeter>							
+													</Children>
+												</WidgetGroup>							
+												<WidgetGroup>
+													<SizePolicy>me,me</SizePolicy>
+													<Layout>vertical</Layout>					
+													<Children>	
+														  <StatusLight>
+															<MinimumSize>30</MinimumSize>
+															<MaximumSize>50</MaximumSize>
+															<ObjectName>PeakIndicator</ObjectName>
+															<Size>me,me</Size>
+															<PathStatusLight scalemode="STRETCH">images/vumeter_clip.svg</PathStatusLight>
+															<Connection>
+																<ConfigKey>[Master],PeakIndicatorR</ConfigKey>
+															</Connection>
+														  </StatusLight>
+														  <VuMeter>
+															<Size>me,me</Size>
+															<PathVu scalemode="STRETCH">images/vumeter_v.svg</PathVu>
+															<Horizontal>false</Horizontal>							
+															<Connection>
+																<ConfigKey>[Master],VuMeterR</ConfigKey>
+															</Connection>
+														</VuMeter>							
+													</Children>
+												</WidgetGroup>								
+			
+												<SliderComposed>
+													<MinimumSize>100</MinimumSize>
+													<MaximumSize>-1</MaximumSize>
+													<SizePolicy>me,me</SizePolicy>
+													<Handle scalemode="STRETCH_ASPECT">images/mixxx-starting-handle-v.svg</Handle>
+													<Slider scalemode="STRETCH">images/slider-vertical.svg</Slider>
+													<Horizontal>false</Horizontal>
+													<Connection>
+														<ConfigKey>[Channel2],volume</ConfigKey>
+													</Connection>
+												</SliderComposed>						
+											</Children>
+										</WidgetGroup>						
+				
+										<!-- CrossFader -->
+										
+										<WidgetGroup>
+											<SizePolicy>me,me</SizePolicy>
+											<MaximumSize>-1,100</MaximumSize>
+											<Layout>vertical</Layout>
+											<Size>me,me</Size>
+											<Children>				
+													<SliderComposed>
+														<SizePolicy>me,me</SizePolicy>
+														<Handle scalemode="STRETCH_ASPECT">images/mixxx-starting-handle-h.svg</Handle>
+														<Slider scalemode="STRETCH">images/slider-vertical.svg</Slider>
+														<Horizontal>true</Horizontal>
+														<Connection>
+															<ConfigKey>[Master],crossfader</ConfigKey>
+														</Connection>
+													</SliderComposed>
+												</Children>
+											</WidgetGroup>	
+											
+										<!-- End crossfader -->
+										
+										</Children>
+								</WidgetGroup>		
+								<!-- END Mixer -->
+
+								
+														
+								<WidgetGroup>
+									<SizePolicy>me,me</SizePolicy>
+									<Layout>vertical</Layout>					
+									<Children>	
+										  <StatusLight>
+											<ObjectName>PeakIndicator</ObjectName>
+											<MinimumSize>-1</MinimumSize>
+											<MaximumSize>-1</MaximumSize>
+											<Size>me,me</Size>
+											<PathStatusLight scalemode="STRETCH">images/vumeter_clip.svg</PathStatusLight>
+											<Connection>
+												<ConfigKey>[Channel2],PeakIndicator</ConfigKey>
+											</Connection>
+										  </StatusLight>
+										  <VuMeter>
+											<Size>me,me</Size>
+											<PathVu scalemode="STRETCH">images/vumeter_v.svg</PathVu>
+											<Horizontal>false</Horizontal>							
+											<Connection>
+												<ConfigKey>[Channel2],VuMeter</ConfigKey>
+											</Connection>
+										</VuMeter>							
+									</Children>
+								</WidgetGroup>							
+				
+				
+							</Children>
+						</WidgetGroup>		
+						
+						<!-- END VU METERS -->
+
+						<!-- Channel 2 Waveforms-->
+						
+						<WidgetGroup>
+							<SizePolicy>me,me</SizePolicy>
+							<Layout>vertical</Layout>					
+							<Children>					
+								<Visual>
+									<Channel>2</Channel>
+								</Visual>
+								<Overview>
+									<Channel>2</Channel>
+									<SizePolicy>me,me</SizePolicy>
+									<Connection>
+										<ConfigKey>[Channel2],playposition</ConfigKey>
+									</Connection>
+								</Overview>								
+								<TrackProperty>
+									<Property>artist</Property>
+									<Channel>2</Channel>
+								</TrackProperty>
+								<TrackProperty>
+									<Property>title</Property>
+									<Channel>2</Channel>
+								</TrackProperty>
+
+
+								<!-- Channel 2 Controls -->
+					
+								<WidgetGroup>
+									<SizePolicy>me,me</SizePolicy>
+									<Layout>horizontal</Layout>		
+									<Children>
+											<PushButton>
+												<MinimumSize>10</MinimumSize>
+												<MaximumSize>-1</MaximumSize>
+												<SizePolicy>me,me</SizePolicy>
+												<NumberStates>1</NumberStates>
+												<State>
+													<Number>0</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-backward.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-backward.svg</Unpressed>
+												</State>
+												<Connection>
+													<ConfigKey>[Channel2],back</ConfigKey>
+													<ButtonState>LeftButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel2],start</ConfigKey>
+													<ButtonState>RightButton</ButtonState>
+												</Connection>
+											</PushButton>
+											
+											<PushButton>
+												<MinimumSize>10</MinimumSize>
+												<MaximumSize>-1</MaximumSize>
+												<SizePolicy>me,me</SizePolicy>
+												<NumberStates>1</NumberStates>
+												<State>
+													<Number>0</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-forward.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-forward.svg</Unpressed>
+												</State>
+												<Connection>
+													<ConfigKey>[Channel2],fwd</ConfigKey>
+													<ButtonState>LeftButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel2],end</ConfigKey>
+													<ButtonState>RightButton</ButtonState>
+												</Connection>
+											</PushButton>
+											
+											<PushButton>
+												<MinimumSize>10</MinimumSize>
+												<MaximumSize>-1</MaximumSize>
+												<SizePolicy>me,me</SizePolicy>
+												<NumberStates>2</NumberStates>
+												<RightClickIsPushButton>true</RightClickIsPushButton>
+												<State>
+													<Number>0</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-start.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-start.svg</Unpressed>
+												</State>
+												<State>
+													<Number>1</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-pause.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-pause.svg</Unpressed>
+												</State>
+												<Connection>
+													<ConfigKey>[Channel2],play</ConfigKey>
+													<ButtonState>LeftButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel2],cue_set</ConfigKey>
+													<ButtonState>RightButton</ButtonState>
+													<ConnectValueToWidget>false</ConnectValueToWidget>
+												</Connection>
+											</PushButton>
+								
+											<PushButton>
+												<MinimumSize>10</MinimumSize>
+												<MaximumSize>-1</MaximumSize>
+												<SizePolicy>me,me</SizePolicy>
+												<NumberStates>2</NumberStates>
+												<State>
+													<Number>0</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-stop.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-stop.svg</Unpressed>
+												</State>
+												<State>
+													<Number>1</Number>
+													<Pressed scalemode="STRETCH_ASPECT">images/mixxx-starting-stop.svg</Pressed>
+													<Unpressed scalemode="STRETCH_ASPECT">images/mixxx-starting-stop.svg</Unpressed>
+												</State>
+												<Connection>
+													<ConfigKey>[Channel2],cue_default</ConfigKey>
+													<ButtonState>LeftButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel2],cue_gotoandstop</ConfigKey>
+													<ButtonState>RightButton</ButtonState>
+												</Connection>
+												<Connection>
+													<ConfigKey>[Channel2],cue_indicator</ConfigKey>
+												</Connection>
+											</PushButton>						
+							
+								
+										</Children>
+									</WidgetGroup>				
+					
+								<!-- END Channel 2 Controls -->						
+						
+						
+
+							</Children>
+						</WidgetGroup>	
+
+						<!-- END Channel 2 Waveforms -->
+						
+						
+						
+					</Children>
+				</WidgetGroup>
+				
+
+				<!-- Controls and Mixer -->
+				
+				<!--<WidgetGroup>
+					<SizePolicy>me,me</SizePolicy>
+					<Layout>horizontal</Layout>		
+					<Children>
+					
+				
+
+					</Children>
+				</WidgetGroup>-->
+
+
+				<!--<Template src="skin:library.xml"/>-->
+				
+				
+			</Children>
+		</WidgetGroup>
+	</Children>
+
+
+
+</skin> <!-- end Skin opening tag -->
